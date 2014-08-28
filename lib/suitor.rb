@@ -8,15 +8,17 @@ require 'twilio-ruby'
 require 'dotenv'
 Dotenv.load
 
-@client =RedditKit::Client.new "ruby_relay_bot", "PahkThaCah"
+dest = ENV["TO_PHONE"]
+
+@client =RedditKit::Client.new ENV["REDDIT_KIT_USER"], ENV["REDDIT_KIT_PASS"]
 body = @client.links("romance").first.title
 body += " "+ @client.links("romance").first.url
 
-@client = Twilio::REST::Client.new 'ACbb8840b48cc93d4b05e987d82f7a281a', '0f065f163e588424cf645b07e3dbc0cb'
+@client = Twilio::REST::Client.new ENV["TWILLO_SID"], ENV["TWILLO_TOKEN"]
 
 @client.account.messages.create({
-	:from => '+18574454093', :to =>'8889157768',
+	:from => ENV["FROM_PHONE"], :to => dest,
 	:body => body
 })
 
-puts "Swooned 8889157768"
+puts "Swooned #{dest}"
