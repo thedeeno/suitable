@@ -1,3 +1,8 @@
+# setup bundle
+require 'rubygems'
+require 'bundler/setup'
+
+# require dependencies
 require 'redditkit'
 require 'twilio-ruby'
 
