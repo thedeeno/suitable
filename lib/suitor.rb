@@ -2,9 +2,11 @@
 require 'rubygems'
 require 'bundler/setup'
 
-# require dependencies
 require 'redditkit'
 require 'twilio-ruby'
+
+require 'dotenv'
+Dotenv.load
 
 @client =RedditKit::Client.new "ruby_relay_bot", "PahkThaCah"
 body = @client.links("romance").first.title
