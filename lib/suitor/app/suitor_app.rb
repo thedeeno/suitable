@@ -1,5 +1,16 @@
-require 'sinatra'
+require 'sinatra/base'
 
-get '/' do
-  "Hello World"
+module Suitor
+module App
+
+  class SuitorApp < Sinatra::Base
+
+    get '/' do
+      "Hello World"
+    end
+
+  end
+
 end
+end
+

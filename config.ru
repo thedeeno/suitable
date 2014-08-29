@@ -1,3 +1,4 @@
 require 'suitor'
 require 'suitor/app'
-run Sinatra::Application
+
+run Suitor::App::SuitorApp
