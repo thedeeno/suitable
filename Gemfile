@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 
-gem 'redditkit'
-gem 'twilio-ruby'
-gem 'dotenv'
+gemspec
 
 group :test do
   gem 'rspec'

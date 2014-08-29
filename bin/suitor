@@ -1,11 +1,6 @@
 #! /usr/bin/env ruby
-#
-# setup bundle
-require 'rubygems'
-require 'bundler/setup'
-
 require 'dotenv'
-Dotenv.load
+Dotenv.load ".suitor"
 
-require_relative "../lib/suitor"
-require_relative "../lib/suitor/cli/runner"
+require "suitor/cli"
+Suitor::Cli::Command.run
