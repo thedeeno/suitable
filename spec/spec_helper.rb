@@ -20,6 +20,7 @@ MAGIC_NUMBERS = {
 
 
 require 'rspec'
+require 'support/output_capture'
 RSpec.configure do |config|
 end
 

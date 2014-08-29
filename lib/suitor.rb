@@ -17,9 +17,10 @@ module Suitor
     # Composes charm using optional source material and dispatches
     # it to given phone number.
     #
+    # @param [String] number The phone number to dispatch message to
     # @option options [String] :with The subreddit to use for source material.
     def charm(number, options={})
-      subreddit = options[:with]
+      subreddit = options[:with] if options
       msg = composer.compose(subreddit)
       twilio.dispatch({
         to: number,
