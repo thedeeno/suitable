@@ -13,6 +13,11 @@ module App
       haml :index
     end
 
+    post '/charm' do
+      error 400, "missing phone number" unless params[:phone_number]
+      sms = Suitor.charm(params[:phone_number])
+      json sms.to_json
+    end
   end
 
 end
