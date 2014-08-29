@@ -28,6 +28,10 @@ generate sms messages and dispatch them to a phone of your choosing.
   # cli dependencies
   spec.add_runtime_dependency "clamp", "~> 0.6"
 
+  # app dependencies
+  spec.add_runtime_dependency "sinatra", "~> 1.4"
+
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "foreman"
 end
