@@ -1,24 +1,30 @@
-# setup bundle
-require 'rubygems'
-require 'bundler/setup'
+require_relative 'suitor/core'
 
-require 'redditkit'
-require 'twilio-ruby'
+module Suitor
+  class << self
+    def twilio
+      @twilio ||= Core::Twilio.new
+    end
 
-require 'dotenv'
-Dotenv.load
+    def reddit
+      @reddit ||= Core::Reddit.new
+    end
 
-dest = ENV["TO_PHONE"]
+    def composer
+      @composer ||= Core::Composer.new(reddit)
+    end
 
-@client =RedditKit::Client.new ENV["REDDIT_KIT_USER"], ENV["REDDIT_KIT_PASS"]
-body = @client.links("romance").first.title
-body += " "+ @client.links("romance").first.url
-
-@client = Twilio::REST::Client.new ENV["TWILLO_SID"], ENV["TWILLO_TOKEN"]
-
-@client.account.messages.create({
-	:from => ENV["FROM_PHONE"], :to => dest,
-	:body => body
-})
-
-puts "Swooned #{dest}"
+    # Composes charm using optional source material and dispatches
+    # it to given phone number.
+    #
+    # @option options [String] :with The subreddit to use for source material.
+    def charm(number, options={})
+      subreddit = options[:with]
+      msg = composer.compose(subreddit)
+      twilio.dispatch({
+        to: number,
+        body: msg,
+      })
+    end
+  end
+end
