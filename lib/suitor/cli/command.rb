@@ -5,6 +5,7 @@ module Suitor
 module Cli
 
   class Command < Clamp::Command
+    # Assume 'suitor' is the 'invocation_path' at construction time
     def initialize(*args)
       super("suitor", *args)
     end
@@ -13,6 +14,7 @@ module Cli
 
     parameter "PHONE_NUMBER", "the phone number to charm"
 
+    # Delegates to the Suitor facade and prints confirmation message
     def execute
       Suitor.charm(phone_number, subreddit)
       puts "Swooned #{phone_number}"
