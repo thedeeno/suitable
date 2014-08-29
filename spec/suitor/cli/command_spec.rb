@@ -9,6 +9,13 @@ module Suitor
     let(:valid_number) { MAGIC_NUMBERS[:valid] }
     let(:valid_subreddit) { "doge" }
 
+    it "outputs confirmation message" do
+      allow(Suitor).to receive(:charm) { true }
+      command.phone_number = valid_number
+      command.execute
+      expect(stdout).to match(/swooned/i)
+    end
+
     it "sends phone number to Suitor facade" do
       command.phone_number = valid_number
       expect(Suitor).to receive(:charm).with(valid_number, nil)
