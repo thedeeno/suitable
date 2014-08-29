@@ -30,6 +30,7 @@ generate sms messages and dispatch them to a phone of your choosing.
 
   # app dependencies
   spec.add_runtime_dependency "sinatra", "~> 1.4"
+  spec.add_runtime_dependency "haml", "~> 4"
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"

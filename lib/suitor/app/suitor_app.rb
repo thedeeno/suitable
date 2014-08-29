@@ -4,9 +4,11 @@ module Suitor
 module App
 
   class SuitorApp < Sinatra::Base
+    set :views, File.join(settings.root, "templates")
+    set :haml, format: :html5
 
     get '/' do
-      "Hello World"
+      haml :index
     end
 
   end

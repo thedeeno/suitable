@@ -15,8 +15,9 @@ describe "Synchrony API" do
   end
 
   describe "GET /" do
-    it "returns hello world" do
+    it "says hello world" do
       get "/"
+      expect(last_response).to be_ok
       expect(last_response.body).to match(/hello world/i)
     end
   end
