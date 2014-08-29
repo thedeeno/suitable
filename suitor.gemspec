@@ -36,5 +36,8 @@ generate sms messages and dispatch them to a phone of your choosing.
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "foreman"
+
+  # testing
   spec.add_development_dependency "rack-test"
+  spec.add_development_dependency "capybara", "~> 2.4.1"
 end
