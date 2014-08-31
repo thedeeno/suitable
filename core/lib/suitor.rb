@@ -4,9 +4,6 @@ require_relative 'suitor/composer'
 require_relative 'suitor/services/reddit'
 require_relative 'suitor/services/twilio'
 
-require_relative 'suitor/models/message'
-
-
 module Suitor
   class << self
     def twilio
