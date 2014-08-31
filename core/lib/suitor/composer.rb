@@ -2,16 +2,10 @@ module Suitor
 
   # Composes charms from reddit links.
   class Composer
-    def initialize(reddit)
-      @reddit = reddit
-    end
 
-    def compose(sub)
-      link = @reddit.top_link(sub)
-      Message.new({
-        url: link.url,
-        title: link.title
-      })
+    # Returns a string representation of given link
+    def compose(link)
+      "#{link.title} #{link.url}"
     end
   end
 

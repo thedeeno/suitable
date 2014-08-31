@@ -3,19 +3,11 @@ require 'ostruct'
 module Suitor
 
   describe Composer do
+    let(:composer) { described_class.new }
 
-    it "generates message from top link in subreddit" do
-      reddit = double("Reddit")
-      allow(reddit)
-        .to receive(:top_link)
-        .with("romance")
-        .and_return(OpenStruct.new(url: "love.com", title: "foo"))
-
-      composer = Composer.new(reddit)
-      actual = composer.compose("romance")
-      expected = Message.new(title: "foo", url: "love.com")
-
-      expect(actual).to eq(expected)
+    it "generates message from link" do
+      link = OpenStruct.new(url: "love.com", title: "foo")
+      expect(composer.compose(link)).to eq("foo love.com")
     end
   end
 

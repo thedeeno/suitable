@@ -1,19 +1,15 @@
 module Suitor
 
   describe Reddit do
-    describe "#compose" do
-      it "generates message from top link in subreddit" do
-        reddit = double("Reddit")
-        allow(reddit)
-          .to receive(:top_link)
-          .with("romance")
-          .and_return(OpenStruct.new(url: "love.com", title: "foo"))
+    let(:reddit) { described_class.new }
 
-        composer = Composer.new(reddit)
-        actual = composer.compose("romance")
-        expected = Message.new(title: "foo", url: "love.com")
+    describe "#compose_from" do
+      it "asks composer to create message from top link" do
+        link = OpenStruct.new(url: "love.com", title: "foo")
+        allow(reddit).to receive(:top_link) { link }
+        expect(reddit.composer).to receive(:compose).with(link)
 
-        expect(actual).to eq(expected)
+        reddit.compose_from("romance")
       end
     end
   end
