@@ -1,6 +1,0 @@
-#! /usr/bin/env ruby
-require 'dotenv'
-Dotenv.load ".suitor"
-
-require "suitor/cli"
-Suitor::Cli::Command.run

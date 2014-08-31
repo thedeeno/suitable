@@ -1,0 +1,3 @@
+#!/bin/bash -xe
+
+(cd ./app/backend && bundle exec rackup config.ru -p 4567)

@@ -1,2 +1,1 @@
-development: bundle exec rackup
-test: bundle exec rackup -p 9230
+backend: ./script/start_backend_server
