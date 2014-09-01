@@ -8,6 +8,8 @@ gem "suitor", path: "../../core"
 group :test do
   gem "rspec", "~> 3.0"
   gem "rack-test"
-  gem "capybara", "~> 2.4.1"
-  gem "selenium-webdriver"
+end
+
+group :development, :test do
+  gem "pry"
 end
