@@ -7,7 +7,7 @@ describe "API:" do
 
   before do
     # stub the suitor facade
-    allow(Suitor).to receive(:charm) { true }
+    allow(Suitor).to receive(:charm) { Suitor::SMS.new }
   end
 
   describe "GET /" do

@@ -5,6 +5,10 @@ module Suitor
     def initialize(twilio_sms=nil)
       @twilio_sms=twilio_sms
     end
+
+    def message
+      "test"
+    end
   end
 end
 
