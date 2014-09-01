@@ -1,8 +1,7 @@
 source "https://rubygems.org"
 
-# gem "suitor", path: "../core"
-
 group :test do
+  gem "childprocess"
   gem "rspec", "~> 3.0"
   gem "capybara", "~> 2.4.1"
   gem "selenium-webdriver"
