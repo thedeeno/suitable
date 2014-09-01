@@ -9,6 +9,8 @@ tmp
 *.a
 mkmf.log
 
+*.scratch
+
 core/Gemfile.lock
 cli/Gemfile.lock
 
