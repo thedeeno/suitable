@@ -1,8 +1,26 @@
 %body
   %h1
-    hello world
-  %form(action="/charm" method="POST")
-    %input(name="phone_number")
+    Suitor
+
+  %form(id="charm-form" action="/charm" method="POST")
+
+    - if charm.invalid?
+      .validation-errors
+        Please correct the following:
+        .validation-message
+          = charm.validation_message
+
+    %input{name: "phone_number", value:"#{charm.fields[:phone_number].value}", class:"#{charm[:phone_number].state}"}
     %input(name="subreddit")
     %input(type="submit" value="Charm")
 
+  - if charm.failed_dispatch?
+    .dispatch-error
+      %h2 Failed to send charm.
+      %p= charm.dispatch_error
+
+  - if charm.dispatched?
+    .dispatch-success
+      Message sent!
+    .last-charm
+      = charm.message

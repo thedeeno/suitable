@@ -3,6 +3,8 @@ require 'sinatra/json'
 require 'suitor'
 require 'haml'
 
+require_relative "models/charm"
+
 module Suitor
 
   class Backend < Sinatra::Base
@@ -11,14 +13,14 @@ module Suitor
     set :haml, format: :html5
 
     get '/' do
-      haml :index
+      charm = App::Charm.new
+      haml :index, locals: { charm: charm }
     end
 
     post '/charm' do
-      error 400, "missing phone number" unless params[:phone_number]
-      sms = Suitor.charm(params[:phone_number])
-      json sms.to_json
+      charm = App::Charm.new(params)
+      charm.submit
+      haml :index, locals: { charm: charm }
     end
   end
-
 end
