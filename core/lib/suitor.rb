@@ -1,6 +1,8 @@
 require_relative 'suitor/errors'
 require_relative 'suitor/composer'
 
+require_relative 'suitor/models/sms'
+
 require_relative 'suitor/services/reddit'
 require_relative 'suitor/services/twilio'
 
@@ -22,10 +24,11 @@ module Suitor
     def charm(number, options={})
       subreddit = options[:with] if options
       msg = reddit.compose_from(subreddit)
-      twilio.dispatch({
+      twilio_sms = twilio.dispatch({
         to: number,
         body: msg,
       })
+      SMS.new(twilio)
     end
   end
 end

@@ -1,10 +1,3 @@
-ENV['RACK_ENV'] = 'test'
-
-require 'rack/test'
-require 'json'
-
-require_relative '../app/backend'
-
 describe "API:" do
   include Rack::Test::Methods
 

@@ -7,8 +7,28 @@ module App
   # This is muteable - tracking validation, dispatch, and response. Not the
   # cleanest perhaps, but straightforward.
   class Charm
-    def initialize(options={})
+    def self.phone_pattern
+      @phone_pattern ||= /\+?\d{10,11}(?:x\d+)?/
+    end
 
+    # params
+    attr_reader :phone_number, :subreddit
+
+    # state
+    attr_reader :submitted,
+      :dispatched,
+      :sms,
+      :dispatch_error,
+      :validation_message
+
+    def initialize(options={})
+      @phone_number = options[:phone_number]
+      @subreddit = options[:subreddit]
+      @submitted = false
+      @dispatched = false
+      @dispatch_error = nil
+      @validation_message = nil
+      @valid = true
     end
 
     def [](key)
@@ -17,7 +37,7 @@ module App
 
     def fields
       {
-        phone_number: OpenStruct.new({ 
+        phone_number: OpenStruct.new({
           state: "invalid",
           message: "phone number is invalid",
           value: "5556668888"
@@ -25,9 +45,22 @@ module App
       }
     end
 
+    def message
+      sms.message
+    end
+
     def submit
-      return if submitted?
+      return unless valid?
       @submitted = true
+      @dispatch_error = nil
+      begin
+        @sms = Suitor.charm(phone_number, with: subreddit)
+        @dispatched = true
+      rescue RedditError
+        @dispatch_error = "Error composing message. Does your subreddit have posts?"
+      rescue TwilioError, SuitorError
+        @dispatch_error = "Error sending text message"
+      end
     end
 
     def invalid?
@@ -35,31 +68,30 @@ module App
     end
 
     def valid?
+      @valid
+    end
+
+    def validate
+      if has_valid_phone_number?
+        @valid = true
+      else
+        @validation_message = "Invalid Phone Number"
+        @valid = false
+      end
+    end
+
+    def has_valid_phone_number?
+      return false if phone_number.nil?
+      return false if phone_number.empty?
+      return false unless phone_number.match(self.class.phone_pattern)
       true
     end
 
-    def submitted?
-      false
-    end
-
-    def dispatched?
-      false
-    end
-
-    def dispatch_error
-      ""
-    end
-
-    def validation_message
-      ""
-    end
+    def submitted?; @submitted; end
+    def dispatched?; @dispatched; end
 
     def failed_dispatch?
       submitted? and !dispatched?
-    end
-
-    def message
-      ""
     end
   end
 end
