@@ -24,8 +24,17 @@ module Suitor
       haml :index, locals: { charm: charm }
     end
 
+    configure :development do
+      Dotenv.load ".env.development"
+    end
+
+    configure :test do
+      Dotenv.load ".env.test"
+    end
+
     # abort start when environment is not properly configured
     configure do
+      Dotenv.load ".env"
       %w[
         TWILIO_TOKEN
         TWILIO_SID
