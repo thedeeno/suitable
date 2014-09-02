@@ -6,9 +6,11 @@ assets:
 assets-css:
   - 'libsass'
 
-assets-js:
-  - 'bower_concat'
+assets-js-local:
   - 'copy:js'
+
+assets-js-vendor:
+  - 'bower_concat'
 
 assets-images:
   - 'copy:images'

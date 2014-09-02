@@ -1,9 +1,11 @@
 module.exports = {
   all: {
-    dest: 'dist/js/components.js',
+    dest: 'dist/js/vendor.js',
     include: [
-        'jquery',
-        'modernizr'
+      'jquery',
+      'modernizr',
+      'underscore',
+      'backbone',
     ]
   }
 }
