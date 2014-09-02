@@ -7,12 +7,12 @@ Feature: Browser App
     Given the suitor app is available
 
   Scenario: Sending a charm
-    Given a visitor "alice"
+    Given I am a visitor
 
-    When she visits the suitor index
-    And she enters a valid phone number
-    And she enters a valid subreddit
-    And she submits the charm
+    When I visit the suitor index
+    And I enter a valid phone number
+    And I enter a valid subreddit
+    And I submit the charm
 
-    Then she should see "Charm sent"
-    And she should see the generated charm
+    Then I should see "Charm sent"
+    And I should see the sms body

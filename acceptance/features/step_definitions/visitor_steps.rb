@@ -1,29 +1,29 @@
 require 'uri'
 
-Given(/^a visitor "(\w+)"$/) do |name|
-  @visitor = Suitor::Acceptance::VisitorAgent.new(name)
+Given(/^I am a visitor$/) do
+  @visitor = Suitor::Acceptance::VisitorAgent.new("visitor")
 end
 
-When(/^(?:he|she) visits the suitor index$/) do
+When(/^I visit the suitor index$/) do
   @visitor.visit(@app.home)
 end
 
-When(/^(?:he|she) enters a valid phone number$/) do
+When(/^I enter a valid phone number$/) do
   @visitor.enter("phone_number", MAGIC_NUMBERS.valid)
 end
 
-When(/^(?:he|she) enters a valid subreddit$/) do
+When(/^I enter a valid subreddit$/) do
   @visitor.enter("subreddit", "romance")
 end
 
-When(/^(?:he|she) submits the charm$/) do
+When(/^I submit the charm$/) do
   @visitor.click("Charm")
 end
 
-Then(/^(?:he|she) should see "(.*?)"$/) do |text|
+Then(/^I should see "(.*?)"$/) do |text|
   @visitor.see!(text: text)
 end
 
-Then(/^(?:he|she) should see the generated charm$/) do
+Then(/^I should see the sms body$/) do
   @visitor.see!(css: ".last-charm")
 end
