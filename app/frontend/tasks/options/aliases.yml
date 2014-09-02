@@ -1,5 +1,6 @@
 assets:
   - 'libsass'
+  - 'copy:images'
 #  - 'sass:dev'
 #  - 'filerev'
 #  - 'filerev_assets'
