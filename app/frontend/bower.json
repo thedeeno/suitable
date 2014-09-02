@@ -1,0 +1,21 @@
+{
+  "name": "suitor-frontend",
+  "version": "0.2.0",
+  "homepage": "https://github.com/thedeeno/suitor-dane",
+  "authors": [
+    "Dane O'Connor <dane.oconnor@gmail.com>"
+  ],
+  "description": "frontend components for suitor app",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "~5.4.3"
+  }
+}
