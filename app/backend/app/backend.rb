@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/json'
 require 'suitor'
 require 'haml'
+require 'dotenv'
 
 require_relative "models/charm"
 
@@ -22,5 +23,19 @@ module Suitor
       charm.submit
       haml :index, locals: { charm: charm }
     end
+
+    # abort start when environment is not properly configured
+    configure do
+      %w[
+        TWILIO_TOKEN
+        TWILIO_SID
+        FROM_PHONE
+        REDDIT_KIT_USER
+        REDDIT_KIT_PASS
+      ].each do |key|
+        abort "Incomplete environment: #{key} not set" if ENV[key].nil? or ENV[key].empty?
+      end
+    end
+
   end
 end
