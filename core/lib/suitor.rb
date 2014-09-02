@@ -24,11 +24,10 @@ module Suitor
     def charm(number, options={})
       subreddit = options[:with] if options
       msg = reddit.compose_from(subreddit)
-      twilio_sms = twilio.dispatch({
+      twilio.dispatch({
         to: number,
         body: msg,
       })
-      SMS.new(twilio)
     end
   end
 end

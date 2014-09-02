@@ -7,7 +7,7 @@ module Suitor
     end
 
     def message
-      "test"
+      @twilio_sms.body
     end
   end
 end

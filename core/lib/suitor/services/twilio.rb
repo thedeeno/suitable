@@ -21,7 +21,7 @@ module Suitor
 
     def dispatch(options)
       options = defaults.merge(options)
-      client.account.messages.create(options)
+      SMS.new(client.account.messages.create(options))
     end
   end
 
