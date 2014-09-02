@@ -14,5 +14,5 @@ Feature: Browser App
     And she enters a valid subreddit
     And she submits the charm
 
-    Then she should see "charm sent"
+    Then she should see "Charm sent"
     And she should see the generated charm
