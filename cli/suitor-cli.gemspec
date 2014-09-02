@@ -18,6 +18,7 @@ generate sms messages and dispatch them to a phone of your choosing.
 
   spec.add_runtime_dependency "suitor"
   spec.add_runtime_dependency "clamp", "~> 0.6"
+  spec.add_runtime_dependency "dotenv"
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
