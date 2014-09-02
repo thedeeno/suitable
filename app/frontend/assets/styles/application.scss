@@ -1,25 +1,44 @@
 @import url(http://fonts.googleapis.com/css?family=Yesteryear|Open+Sans);
 
-// $subtle: #F870AE;
-$header: #F870AE;
-// $subtle: white;
-$subtle: #605043;
+@import "partials/colors";
 h1 {
   font-family: 'Yesteryear', cursive;
-  color: $header;
-  font-size: 8em;
-  text-shadow: -2px 0 $subtle, 0 2px $subtle, 2px 0 $subtle, 0 -2px $subtle;
+  color: $color-header;
+  font-size: 9em;
+  text-shadow: -2px 0 $color-subtle, 0 2px $color-subtle, 2px 0 $color-subtle, 0 -2px $color-subtle;
   text-align: center;
+  line-height: 1.2em;
+  margin-top: .2em;
 }
 
 body {
   background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
-  background-position: 10% 20px, right 10% top;
+  background-position: 5% 20px, right 5% top;
   background-repeat: no-repeat;
   background-size: contain;
 
   margin: auto;
   max-width: 460px;
-  background-color: #AEE2FA;
+  background-color: $color-background;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+.tagline p {
+  text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+.description {
+  text-align: center;
+  padding: 0em 2em;
+}
+
+.last-charm h3 {
+  color: #fff;
+}
+.last-charm p {
+  word-wrap: break-word;
+}
+
+@import "partials/pinched";

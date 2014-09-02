@@ -1,3 +1,4 @@
+!!! 5
 %head
   %link(rel="stylesheet" type="text/css" href="assets/css/components.css")
   %link(rel="stylesheet" type="text/css" href="assets/css/application.css")
@@ -6,6 +7,14 @@
     .large-12.columns
       %h1
         Suitor
+  .row.collapse
+    .tagline
+      %p
+        Woo your sweetheart with charming messages
+    .description
+      %p
+        Just enter a phone number and subreddit below and we'll
+        have your courtee swooning in no time.
 
   %form(id="charm-form" action="/charm" method="POST")
     - if charm.invalid?
@@ -15,27 +24,32 @@
           = charm.validation_message
 
     .row.collapse
-      .large-12.columns
-        %label
-          Phone Number
-          %input{type: "text", name: "phone_number", value:"#{charm.fields[:phone_number].value}", class:"#{charm[:phone_number].state}"}
+      .small-3.large-2.columns
+        %span.prefix Phone
+      .small-9.large-10.columns
+        %input{type: "text", name: "phone_number", value:"#{charm.phone_number}", class:"#{charm[:phone_number].state}", placeholder: "Enter a phone number", autofocus: "autofocus"}
     .row.collapse
       .small-3.large-2.columns
         %span.prefix /r/
       .small-9.large-10.columns
-        %input(type="text" name="subreddit" placeholder="Enter your subreddit")
+        %input{type:"text", name:"subreddit", placeholder:"Enter a subreddit", value: "#{charm.subreddit}"}
 
     .row.collapse
       .large-12.columns
-        %input(class="button expand" type="submit" value="Charm")
+        %input(class="button expand" type="submit" value="Send Charm")
 
-  - if charm.failed_dispatch?
-    .dispatch-error
-      %h2 Failed to send charm.
-      %p= charm.dispatch_error
+  .row.collapse
+    .small-12.column
+      - if charm.failed_dispatch?
+        .dispatch-error
+          %h3 Failed to send charm.
+          %p= charm.dispatch_error
 
-  - if charm.dispatched?
-    .dispatch-success
-      Charm sent!
-    .last-charm
-      = charm.message
+  .row.collapse
+    - if charm.dispatched?
+      .small-12.column.pinched
+        .last-charm
+          %h3.dispatch-success
+            Swooned.
+          %p
+            = charm.message

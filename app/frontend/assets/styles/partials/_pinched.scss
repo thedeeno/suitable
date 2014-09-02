@@ -1,0 +1,54 @@
+.pinched {
+  position:relative;
+  padding:15px;
+  // margin:50px 0 3em;
+  text-align:center;
+  color:#fff;
+  background:#333;
+  /* css3 */
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/* creates a rectangle of the colour wanted for the pointy bit */
+.pinched:before {
+  content:"";
+  position:absolute;
+  top:-20px;
+  left:50%;
+  width:100px;
+  height:20px;
+  margin:0 0 0 -50px;
+  background:#333;
+}
+
+/* creates a rounded rectangle to cover part of the rectangle generated above */
+.pinched:after {
+  content:"";
+  position:absolute;
+  top:-20px;
+  left:0;
+  width:50%;
+  height:20px;
+  background:$color-background;
+  /* css3 */
+  -webkit-border-bottom-right-radius:15px;
+  -moz-border-radius-bottomright:15px;
+  border-bottom-right-radius:15px;
+}
+
+/* creates the other rounded rectangle */
+.pinched > :first-child:before {
+  content:"";
+  position:absolute;
+  top:-20px;
+  right:0;
+  width:50%;
+  height:20px;
+  background:$color-background;
+  /* css3 */
+  -webkit-border-bottom-left-radius:15px;
+  -moz-border-radius-bottomleft:15px;
+  border-bottom-left-radius:15px;
+}
