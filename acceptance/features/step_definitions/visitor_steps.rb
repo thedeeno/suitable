@@ -9,7 +9,7 @@ When(/^(?:he|she) visits the suitor index$/) do
 end
 
 When(/^(?:he|she) enters a valid phone number$/) do
-  @visitor.enter("phone_number", "5556667777")
+  @visitor.enter("phone_number", MAGIC_NUMBERS.valid)
 end
 
 When(/^(?:he|she) enters a valid subreddit$/) do
