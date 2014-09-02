@@ -23,7 +23,7 @@ module App
 
     def initialize(options={})
       @phone_number = options[:phone_number]
-      @subreddit = options[:subreddit]
+      @subreddit = options[:subreddit] || "romance"
       @submitted = false
       @dispatched = false
       @dispatch_error = nil
