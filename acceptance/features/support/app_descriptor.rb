@@ -4,9 +4,22 @@ module Suitor
 module Acceptance
   class AppDescriptor
     attr_reader :uri
+    attr_reader :io
 
-    def initialize(uri)
+    def initialize(io, uri)
+      @io = io
       @uri = uri
+    end
+
+    def not_avialable_error
+      io.rewind
+      "Suitor app is not available at #{uri}\n#{io.read}"
+    end
+
+    def ensure_available!(timeout)
+      if not available?(timeout)
+        raise not_avialable_error
+      end
     end
 
     def available?(timeout)
