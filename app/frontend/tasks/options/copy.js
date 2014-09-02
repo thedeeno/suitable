@@ -7,5 +7,13 @@ module.exports = {
       dest: 'dist/images',
       filter: 'isFile'
     }]
+  },
+  js: {
+    files: [{
+      expand: true,
+      cwd: 'assets/scripts',
+      src: ['**/*.js'],
+      dest: 'dist/js'
+    }]
   }
 };
