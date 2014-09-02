@@ -1,12 +1,5 @@
 require 'uri'
 
-Given(/^the suitor app is available$/) do
-  # TODO: remove hard coded address
-  uri = URI.parse("http://localhost:9230")
-  @app = Suitor::Acceptance::AppDescriptor.new(uri)
-  expect(@app).to be_available, "Suitor app is not available at #{@app}\n"
-end
-
 Given(/^a visitor "(\w+)"$/) do |name|
   @visitor = Suitor::Acceptance::VisitorAgent.new(name)
 end
