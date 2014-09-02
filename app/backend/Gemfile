@@ -12,4 +12,5 @@ end
 
 group :development, :test do
   gem "pry"
+  gem "rack-livereload"
 end

@@ -12,6 +12,7 @@ module Suitor
     helpers Sinatra::JSON
     set :views, File.join(settings.root, "templates")
     set :haml, format: :html5
+    set :static, true
 
     get '/' do
       charm = App::Charm.new

@@ -1,0 +1,5 @@
+assets:
+  - 'libsass'
+#  - 'sass:dev'
+#  - 'filerev'
+#  - 'filerev_assets'
