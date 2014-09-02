@@ -1,4 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Yesteryear|Open+Sans);
 
+// $subtle: #F870AE;
+$header: #F870AE;
+// $subtle: white;
+$subtle: #605043;
 h1 {
-  color: purple;
+  font-family: 'Yesteryear', cursive;
+  color: $header;
+  font-size: 8em;
+  text-shadow: -2px 0 $subtle, 0 2px $subtle, 2px 0 $subtle, 0 -2px $subtle;
+  text-align: center;
+}
+
+body {
+  background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
+  background-position: 10% 20px, right 10% top;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  margin: auto;
+  max-width: 460px;
+  background-color: #AEE2FA;
+  font-family: 'Open Sans', sans-serif;
 }

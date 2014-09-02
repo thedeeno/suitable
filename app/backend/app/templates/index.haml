@@ -2,20 +2,32 @@
   %link(rel="stylesheet" type="text/css" href="assets/css/components.css")
   %link(rel="stylesheet" type="text/css" href="assets/css/application.css")
 %body
-  %h1
-    Suitor
+  .row.collapse
+    .large-12.columns
+      %h1
+        Suitor
 
   %form(id="charm-form" action="/charm" method="POST")
-
     - if charm.invalid?
       .validation-errors
         Please correct the following:
         .validation-message
           = charm.validation_message
 
-    %input{name: "phone_number", value:"#{charm.fields[:phone_number].value}", class:"#{charm[:phone_number].state}"}
-    %input(name="subreddit")
-    %input(type="submit" value="Charm")
+    .row.collapse
+      .large-12.columns
+        %label
+          Phone Number
+          %input{type: "text", name: "phone_number", value:"#{charm.fields[:phone_number].value}", class:"#{charm[:phone_number].state}"}
+    .row.collapse
+      .small-3.large-2.columns
+        %span.prefix /r/
+      .small-9.large-10.columns
+        %input(type="text" name="subreddit" placeholder="Enter your subreddit")
+
+    .row.collapse
+      .large-12.columns
+        %input(class="button expand" type="submit" value="Charm")
 
   - if charm.failed_dispatch?
     .dispatch-error
