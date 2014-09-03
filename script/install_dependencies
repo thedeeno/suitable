@@ -1,0 +1,14 @@
+#!/bin/bash -xe
+
+bundle
+
+(cd ./acceptance && bundle)
+
+(cd ./cli && bundle)
+
+(cd ./core && bundle)
+
+(cd ./app/backend && bundle)
+
+(cd ./app/frontend && npm install)
+(cd ./app/frontend && bower install)
