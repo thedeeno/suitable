@@ -1,11 +1,12 @@
 require 'suitor/cli'
+require 'ostruct'
 
 module Suitor
   describe Cli do
     include OutputCapture
 
     before do
-      allow(Suitor).to receive(:charm) { true }
+      allow(Suitor).to receive(:charm) { OpenStruct.new(message: "works") }
     end
 
     let(:command) { described_class.new }
@@ -15,7 +16,6 @@ module Suitor
     let(:valid_subreddit) { "doge" }
 
     it "outputs confirmation message" do
-      allow(Suitor).to receive(:charm) { true }
       command.phone_number = valid_number
       command.execute
       expect(stdout).to match(/swooned/i)
@@ -23,14 +23,14 @@ module Suitor
 
     it "sends phone number to Suitor facade" do
       command.phone_number = valid_number
-      expect(Suitor).to receive(:charm).with(valid_number, nil)
+      expect(Suitor).to receive(:charm).with(valid_number, with: nil)
       command.execute
     end
 
     it "sends subreddit to Suitor facade" do
       command.phone_number = valid_number
       command.subreddit = valid_subreddit
-      expect(Suitor).to receive(:charm).with(valid_number, valid_subreddit)
+      expect(Suitor).to receive(:charm).with(valid_number, with: valid_subreddit)
       command.execute
     end
 
