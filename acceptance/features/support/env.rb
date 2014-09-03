@@ -22,11 +22,6 @@ class SuitorWorld
 end
 world = SuitorWorld.new
 World { world }
-After do
-  if @visitor and @visitor.session
-    @visitor.session.driver.browser.close
-  end
-end
 
 # Stop server at exit
 at_exit do
