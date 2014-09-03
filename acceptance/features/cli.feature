@@ -4,13 +4,15 @@ Feature: Command Line Interface
   I want to use a cli to send charming messages
 
   Scenario: Sending a simple charm
-    When I run suitor with "15005550001"
-    Then the output includes "swooned with subreddit 'romance'"
+    When I run suitor with "15005550006"
+    Then the output includes "Swooned."
+    Then the output includes "Message:"
     And the process exits 0
 
   Scenario: Specifying the subreddit
-    When I run suitor with "15005550001 --subreddit doge"
-    Then the output includes "swooned with subreddit 'doge'"
+    When I run suitor with "--subreddit doge 15005550006"
+    Then the output includes "Swooned."
+    Then the output includes "Message:"
     And the process exits 0
 
   Scenario: Attempting invalid args
