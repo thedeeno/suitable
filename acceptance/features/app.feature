@@ -24,7 +24,7 @@ Feature: Browser App
     Then I should see "O Noes!"
     Then I should see "Invalid Phone Number"
 
-  Scenario: Error, unrouteable number
+  Scenario: Attempting to send to an unrouteable number
     When I visit suitor
     And I enter a unrouteable number
     And I click "Send Message"
