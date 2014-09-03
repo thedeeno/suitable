@@ -1,3 +1,8 @@
+.pinched.error,
+.pinched.error:before {
+  background:$color-error;
+}
+
 .pinched {
   position:relative;
   padding:15px;

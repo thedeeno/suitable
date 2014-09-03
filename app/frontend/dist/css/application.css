@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Yesteryear|Open+Sans);
+.pinched.error, .pinched.error:before {
+  background: #D63333; }
+
 .pinched {
   position: relative;
   padding: 15px;

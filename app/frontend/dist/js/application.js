@@ -33,6 +33,10 @@ var CharmView = Backbone.View.extend({
       success: function(data) {
         self.stopSpin();
         self.renderCharm(data);
+      },
+      error: function(data) {
+        self.stopSpin();
+        self.renderError(data.responseJSON);
       }
     });
   },
@@ -54,6 +58,10 @@ var CharmView = Backbone.View.extend({
 
   renderCharm: function(data) {
     this.$charm.html(JST["assets/templates/last_charm.html"](data));
+  },
+
+  renderError: function(data) {
+    this.$charm.html(JST["assets/templates/error.html"](data));
   }
 
 });

@@ -12,6 +12,10 @@ When(/^I enter a valid number$/) do
   @visitor.enter("phone_number", MAGIC_NUMBERS.valid)
 end
 
+When(/^I enter an invalid number$/) do
+  @visitor.enter("phone_number", "foo bar")
+end
+
 When(/^I enter a valid subreddit$/) do
   @visitor.enter("subreddit", "romance")
 end

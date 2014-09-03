@@ -16,3 +16,10 @@ Feature: Browser App
 
     Then I should see "Swooned"
     And I should see the sms body
+
+  Scenario: Error, an invalid number
+    When I visit suitor
+    And I enter an invalid number
+    And I click "Send Message"
+    Then I should see "O Noes!"
+    Then I should see "Invalid Phone Number"
