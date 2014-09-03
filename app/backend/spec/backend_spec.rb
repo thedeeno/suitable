@@ -39,8 +39,8 @@ describe "API:" do
       expect(last_response.body).to_not include("dispatch-success")
     end
 
-    it "doesn't show last charm" do
-      expect(last_response.body).to_not include("last-charm")
+    it "doesn't show last charm message" do
+      expect(last_response.body).to_not include("last-charm-message")
     end
   end
 
