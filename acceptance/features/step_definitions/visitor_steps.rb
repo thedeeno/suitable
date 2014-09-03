@@ -16,8 +16,10 @@ When(/^I enter a valid subreddit$/) do
   @visitor.enter("subreddit", "romance")
 end
 
-When(/^I submit the charm$/) do
-  @visitor.click("Charm")
+# Capybara has a hard time clicking on submit input types.
+# Just hard code the element for now
+When(/^I click "Send Message"$/) do
+  @visitor.session.find("form .button").click
 end
 
 Then(/^I should see "(.*?)"$/) do |text|

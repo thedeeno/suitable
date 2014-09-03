@@ -12,7 +12,7 @@ Feature: Browser App
     When I visit the suitor index
     And I enter a valid phone number
     And I enter a valid subreddit
-    And I submit the charm
+    And I click "Send Message"
 
-    Then I should see "Charm sent"
+    Then I should see "Swooned"
     And I should see the sms body

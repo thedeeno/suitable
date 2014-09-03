@@ -20,7 +20,7 @@ module Acceptance
     end
 
     def click(text)
-      session.click_on(text)
+      session.click_button(text)
     end
 
     # asserts the text or selector is on the page
