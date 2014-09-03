@@ -24,6 +24,9 @@ module App
 
     def initialize(options={})
       @phone_number = options[:phone_number]
+      if @phone_number
+        @phone_number = @phone_number.gsub(/-|\s/, "")
+      end
       @subreddit = options[:subreddit] || "romance"
       @submitted = false
       @dispatched = false

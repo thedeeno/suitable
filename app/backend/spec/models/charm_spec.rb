@@ -40,6 +40,14 @@ module App
         expect(charm.sms).to be_nil
         expect(charm.dispatch_error).to be_nil
       end
+      it "strips dashes from phone_number" do
+        charm = Charm.new(phone_number: "215-555-6667")
+        expect(charm.phone_number).to eq("2155556667")
+      end
+      it "strips spaces from phone_number" do
+        charm = Charm.new(phone_number: "215 555 6667")
+        expect(charm.phone_number).to eq("2155556667")
+      end
     end
 
     describe "#valid_phone_number" do
