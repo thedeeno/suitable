@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# compile frontend assets
+(cd ./app/frontend && grunt assets)
