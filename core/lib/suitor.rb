@@ -32,5 +32,19 @@ module Suitor
     rescue ::Twilio::REST::RequestError => e
       raise TwilioError.new(e)
     end
+
+    # The following environment variables must be set for suitor to
+    # properly funciton
+    def check_environment!
+      %w[
+        TWILIO_TOKEN
+        TWILIO_SID
+        FROM_PHONE
+        REDDIT_KIT_USER
+        REDDIT_KIT_PASS
+      ].each do |key|
+        abort "Incomplete environment: #{key} not set" if ENV[key].nil? or ENV[key].empty?
+      end
+    end
   end
 end
