@@ -1,0 +1,3 @@
+# App development environment
+backend: (cd ./backend && bundle exec rackup config.ru -p 4567)
+frontend: (cd ./frontend && grunt watch)
