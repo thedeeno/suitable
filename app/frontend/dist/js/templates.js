@@ -11,3 +11,13 @@ __p += '<div class="small-12 column pinched bounceInDown">\n  <h3 class="dispatc
 }
 return __p
 };
+
+this["JST"]["assets/templates/spinner.html"] = function(obj) {
+obj || (obj = {});
+var __t, __p = '', __e = _.escape;
+with (obj) {
+__p += '<div class="spinner">\n  <div class="rect1"></div>\n  <div class="rect2"></div>\n  <div class="rect3"></div>\n  <div class="rect4"></div>\n  <div class="rect5"></div>\n</div>\n';
+
+}
+return __p
+};

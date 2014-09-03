@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Yesteryear|Open+Sans);
 
-@import "partials/colors";
-@import "partials/pinched";
+@import "settings/colors";
+@import "parts/pinched";
+@import "parts/spinner";
 @import "transitions/bounceInDown";
 
 @media screen and (min-device-width : 768px) {
