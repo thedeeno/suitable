@@ -10,6 +10,7 @@ module Suitor
 
     let(:command) { described_class.new }
     let(:invalid_arguments) { [] }
+    let(:valid_arguments) { [valid_number] }
     let(:valid_number) { MAGIC_NUMBERS[:valid] }
     let(:valid_subreddit) { "doge" }
 
@@ -37,6 +38,23 @@ module Suitor
       expect do
         described_class.run(invalid_arguments)
       end.to raise_error(SystemExit)
+    end
+
+    context "when environment is incomplete" do
+      before do
+        @original = ENV["TWILIO_SID"]
+        ENV["TWILIO_SID"] = ""
+      end
+      after do
+        ENV["TWILIO_SID"] = @original
+      end
+
+      it "complains when environment no set" do
+        command.phone_number = valid_number
+        expect do
+          command.execute
+        end.to raise_error(SystemExit)
+      end
     end
 
   end

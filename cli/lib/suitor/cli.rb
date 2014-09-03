@@ -15,6 +15,7 @@ module Suitor
 
     # Delegates to the Suitor facade and prints confirmation message
     def execute
+      Suitor.check_environment!
       Suitor.charm(phone_number, subreddit)
       puts "Swooned #{phone_number}"
     end
