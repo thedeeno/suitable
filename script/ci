@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Runs all specs and acceptance scenarios
+# exits 0 if successful 1 otherwise
+
+# TODO: extract function to eliminate repetition
+
+# run test suite
+echo "Running core specs.."
+./script/test_core
+TEST_CORE=$?
+
+echo "Running cli specs.."
+./script/test_cli
+TEST_CLI=$?
+
+echo "Running backend specs.."
+./script/test_backend
+TEST_BACKEND=$?
+
+echo "Running frontend specs.."
+./script/test_frontend
+TEST_FRONTEND=$?
+
+echo "Running acceptance scenarios.."
+./script/verify_all
+ACCEPT=$?
+
+
+# check results
+if [ \
+  "$TEST_CORE" = 1 -o \
+  "$TEST_CLI" = 1 -o \
+  "$TEST_BACKEND" = 1 -o \
+  "$TEST_FRONTEND" = 1 -o \
+  "$ACCEPT" = 1 \
+]; then
+  echo "FAIL"
+  exit 1
+else
+  echo "PASS"
+  exit 0
+fi
