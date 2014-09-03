@@ -1,0 +1,84 @@
+@import url(http://fonts.googleapis.com/css?family=Yesteryear|Open+Sans);
+h1 {
+  font-family: 'Yesteryear', cursive;
+  color: #F870AE;
+  font-size: 9em;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  text-align: center;
+  line-height: 1.2em;
+  margin-top: 0.2em; }
+
+body {
+  background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
+  background-position: 5% 20px, right 5% top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+  max-width: 460px;
+  background-color: #AEE2FA;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px; }
+
+.tagline p {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif; }
+
+.description {
+  text-align: center;
+  padding: 0em 2em; }
+
+.last-charm h3 {
+  color: #fff; }
+
+.last-charm p {
+  word-wrap: break-word; }
+
+.pinched {
+  position: relative;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  background: #333;
+  /* css3 */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; }
+
+/* creates a rectangle of the colour wanted for the pointy bit */
+.pinched:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  width: 100px;
+  height: 20px;
+  margin: 0 0 0 -50px;
+  background: #333; }
+
+/* creates a rounded rectangle to cover part of the rectangle generated above */
+.pinched:after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 50%;
+  height: 20px;
+  background: #AEE2FA;
+  /* css3 */
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  border-bottom-right-radius: 15px; }
+
+/* creates the other rounded rectangle */
+.pinched > :first-child:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 50%;
+  height: 20px;
+  background: #AEE2FA;
+  /* css3 */
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  border-bottom-left-radius: 15px; }
