@@ -14,6 +14,10 @@ module Suitor
       @original = original
       super("Problem sending text message")
     end
+
+    def to_s
+      "#{super}:\n#{@original}"
+    end
   end
 end
 
