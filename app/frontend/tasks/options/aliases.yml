@@ -1,6 +1,8 @@
 assets:
   - 'assets-css'
-  - 'assets-js'
+  - 'assets-js-vendor'
+  - 'assets-js-local'
+  - 'assets-js-templates'
   - 'assets-images'
 
 assets-css:
@@ -11,6 +13,9 @@ assets-js-local:
 
 assets-js-vendor:
   - 'bower_concat'
+
+assets-js-templates:
+  - 'jst'
 
 assets-images:
   - 'copy:images'

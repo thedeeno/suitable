@@ -20,4 +20,11 @@ module.exports = {
       livereload: true,
     },
   },
+  "templates": {
+    files: 'assets/templates/**/*.html',
+    tasks: ['jst'],
+    options: {
+      livereload: true,
+    },
+  }
 };

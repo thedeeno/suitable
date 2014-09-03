@@ -36,7 +36,7 @@
 
     .row.collapse
       .large-12.columns
-        %input(class="button expand" type="submit" value="Send Charm")
+        %input(class="button expand" type="submit" value="Send Message")
 
   .row.collapse
     .small-12.column
@@ -45,13 +45,14 @@
           %h3 Failed to send charm.
           %p= charm.dispatch_error
 
-  .row.collapse
+  .last-charm.row.collapse
     - if charm.dispatched?
       .small-12.column.pinched
-        .last-charm
-          %h3.dispatch-success
-            Swooned.
-          %p
-            = charm.message
+        %h3.dispatch-success
+          Swooned.
+        %p
+          = charm.message
+
   %script(type="text/javascript" src="assets/js/vendor.js")
+  %script(type="text/javascript" src="assets/js/templates.js")
   %script(type="text/javascript" src="assets/js/application.js")

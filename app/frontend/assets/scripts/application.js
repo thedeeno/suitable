@@ -4,10 +4,10 @@ $(document).ready(function() {
 
 var CharmView = Backbone.View.extend({
 
-  el: $("#charm-form"),
+  el: $("body"),
 
   events: {
-    "submit": "submit"
+    "submit form": "submit"
   },
 
   initialize: function() {
@@ -20,7 +20,7 @@ var CharmView = Backbone.View.extend({
       accepts: "application/json",
       data: this.$el.serialize(),
       success: function(data) {
-        console.log(data);
+        $(".last-charm").html(JST["assets/templates/last_charm.html"](data));
       }
     });
 
