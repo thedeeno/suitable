@@ -4,11 +4,11 @@ Given(/^I am a visitor$/) do
   @visitor = Suitor::Acceptance::VisitorAgent.new("visitor")
 end
 
-When(/^I visit the suitor index$/) do
+When(/^I visit suitor$/) do
   @visitor.visit(@app.home)
 end
 
-When(/^I enter a valid phone number$/) do
+When(/^I enter a valid number$/) do
   @visitor.enter("phone_number", MAGIC_NUMBERS.valid)
 end
 

@@ -20,7 +20,7 @@ module Acceptance
     end
 
     def click(text)
-      session.click_button(text)
+      session.find(text).click
     end
 
     # asserts the text or selector is on the page
@@ -34,7 +34,6 @@ module Acceptance
       else
         raise "Visitor doesn't know how to see #{key}"
       end
-
     end
 
   end

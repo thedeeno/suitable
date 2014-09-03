@@ -5,14 +5,14 @@ Feature: Browser App
 
   Background:
     Given the suitor app is available
-
-  Scenario: Sending a charm
     Given I am a visitor
 
-    When I visit the suitor index
-    And I enter a valid phone number
-    And I enter a valid subreddit
+  Scenario: Sending a charm
+    When I visit suitor
+    And I enter a valid number
     And I click "Send Message"
+    Then I should see "Swooned"
+    And I should see the sms body
 
     Then I should see "Swooned"
     And I should see the sms body
