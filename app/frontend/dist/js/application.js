@@ -11,7 +11,7 @@ var CharmView = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.$form = $("form");
+    this.$form = $('form');
   },
 
   submit: function(e) {

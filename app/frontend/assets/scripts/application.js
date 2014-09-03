@@ -11,6 +11,7 @@ var CharmView = Backbone.View.extend({
   },
 
   initialize: function() {
+    this.$form = $('form');
   },
 
   submit: function(e) {
@@ -18,7 +19,7 @@ var CharmView = Backbone.View.extend({
       url: "/charm",
       type: "POST",
       accepts: "application/json",
-      data: this.$el.serialize(),
+      data: this.$form.serialize(),
       success: function(data) {
         $(".last-charm").html(JST["assets/templates/last_charm.html"](data));
       }
