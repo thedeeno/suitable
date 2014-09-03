@@ -23,3 +23,11 @@ Feature: Browser App
     And I click "Send Message"
     Then I should see "O Noes!"
     Then I should see "Invalid Phone Number"
+
+  Scenario: Error, unrouteable number
+    When I visit suitor
+    And I enter a unrouteable number
+    And I click "Send Message"
+    Then I should see "O Noes!"
+    Then I should see "Error sending text message"
+

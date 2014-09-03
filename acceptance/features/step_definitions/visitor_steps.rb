@@ -12,6 +12,10 @@ When(/^I enter a valid number$/) do
   @visitor.enter("phone_number", MAGIC_NUMBERS.valid)
 end
 
+When(/^I enter a unrouteable number$/) do
+  @visitor.enter("phone_number", MAGIC_NUMBERS.unrouteable)
+end
+
 When(/^I enter an invalid number$/) do
   @visitor.enter("phone_number", "foo bar")
 end

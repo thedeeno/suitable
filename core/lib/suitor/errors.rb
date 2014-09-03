@@ -8,6 +8,12 @@ module Suitor
     end
   end
 
-  class TwilioError < SuitorError; end
+  class TwilioError < SuitorError
+    attr_reader :original
+    def initialize(original)
+      @original = original
+      super("Problem sending text message")
+    end
+  end
 end
 

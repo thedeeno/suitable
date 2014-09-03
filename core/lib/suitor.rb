@@ -29,6 +29,8 @@ module Suitor
         to: number,
         body: msg,
       })
+    rescue ::Twilio::REST::RequestError => e
+      raise TwilioError.new(e)
     end
   end
 end

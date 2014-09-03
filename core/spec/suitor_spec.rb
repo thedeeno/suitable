@@ -19,5 +19,12 @@ describe Suitor do
 
       Suitor.charm(valid_number)
     end
+
+    it "wraps twilio request errors" do
+      allow(Suitor.twilio).to receive(:dispatch).and_raise(Twilio::REST::RequestError.new(""))
+      expect do
+        Suitor.charm(valid_number)
+      end.to raise_error(Suitor::TwilioError)
+    end
   end
 end
