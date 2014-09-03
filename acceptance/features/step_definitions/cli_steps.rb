@@ -2,7 +2,10 @@ require 'open3'
 
 When(/^I run suitor with "(.*)"$/) do |argument_string|
   Dir.chdir("../cli") do
-    @output, @status = Open3.capture2e("bundle exec ./bin/suitor #{argument_string}")
+    # clean bundler's environment so we can safley nest the bundle exec call
+    Bundler.with_clean_env do
+      @output, @status = Open3.capture2e("bundle exec ./bin/suitor #{argument_string}")
+    end
   end
 end
 
