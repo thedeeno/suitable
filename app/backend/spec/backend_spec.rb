@@ -124,7 +124,7 @@ describe "API:" do
 
   describe "POST /charm [XHR]" do
     let(:headers) {{
-      "HTTP-X-REQUESTED-WITH" => "XMLHttpRequest"
+      "HTTP_X_REQUESTED_WITH" => "XMLHttpRequest"
     }}
     let(:valid_params) {{ phone_number: "5556667777" }}
 
