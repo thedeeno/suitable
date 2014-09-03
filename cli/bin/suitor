@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 require 'dotenv'
-Dotenv.load ".suitor"
+Dotenv.load ".env"
 
 require "suitor/cli"
 Suitor::Cli.run
