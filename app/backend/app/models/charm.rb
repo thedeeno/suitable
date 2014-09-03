@@ -35,20 +35,6 @@ module App
       @valid = true
     end
 
-    def [](key)
-      fields[key]
-    end
-
-    def fields
-      {
-        phone_number: OpenStruct.new({
-          state: "invalid",
-          message: "phone number is invalid",
-          value: "5556668888"
-        })
-      }
-    end
-
     def message
       return @validation_message if @validation_message
       return @dispatch_error if @dispatch_error

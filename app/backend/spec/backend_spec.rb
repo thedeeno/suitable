@@ -27,10 +27,6 @@ describe "API:" do
       expect(last_response.body).to include("charm-form")
     end
 
-    it "doesn't show validation errors" do
-      expect(last_response.body).to_not include("validation-errors")
-    end
-
     it "doesn't show dispatch error" do
       expect(last_response.body).to_not include("dispatch-error")
     end
@@ -116,9 +112,6 @@ describe "API:" do
         expect(last_response.status).to eq(400)
       end
 
-      it "shows user validation errors" do
-        expect(last_response.body).to include("validation-errors")
-      end
     end
   end
 

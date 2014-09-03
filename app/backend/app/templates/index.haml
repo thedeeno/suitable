@@ -17,22 +17,16 @@
         have your courtee swooning in no time.
 
   %form(id="charm-form" action="/charm" method="POST")
-    - if charm.invalid?
-      .validation-errors
-        Please correct the following:
-        .validation-message
-          = charm.validation_message
-
     .row.collapse
       .small-3.large-2.columns
         %span.prefix Phone
       .small-9.large-10.columns
-        %input{type: "text", name: "phone_number", value:"#{charm.phone_number}", class:"#{charm[:phone_number].state}", placeholder: "Enter a phone number", autofocus: "autofocus"}
+        %input{type: "text", name: "phone_number", value:"#{charm.phone_number}", placeholder: "Enter a phone number", autofocus: "autofocus"}
     .row.collapse
       .small-3.large-2.columns
         %span.prefix /r/
       .small-9.large-10.columns
-        %input{type:"text", name:"subreddit", placeholder:"Enter a subreddit", value: "#{charm.subreddit}"}
+        %input{type:"text", name:"subreddit", value: "#{charm.subreddit}", placeholder:"Enter a subreddit" }
 
     .row.collapse
       .large-12.columns.submit
