@@ -1,38 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Yesteryear|Open+Sans);
-h1 {
-  font-family: 'Yesteryear', cursive;
-  color: #F870AE;
-  font-size: 9em;
-  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
-  text-align: center;
-  line-height: 1.2em;
-  margin-top: 0.2em; }
-
-body {
-  background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
-  background-position: 5% 20px, right 5% top;
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: auto;
-  max-width: 460px;
-  background-color: #AEE2FA;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px; }
-
-.tagline p {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif; }
-
-.description {
-  text-align: center;
-  padding: 0em 2em; }
-
-.last-charm h3 {
-  color: #fff; }
-
-.last-charm p {
-  word-wrap: break-word; }
-
 .pinched {
   position: relative;
   padding: 15px;
@@ -82,3 +48,65 @@ body {
   -webkit-border-bottom-left-radius: 15px;
   -moz-border-radius-bottomleft: 15px;
   border-bottom-left-radius: 15px; }
+
+@keyframes bounceInDown {
+  0%, 30%, 60%, 75%, 90%, 100% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0); }
+
+  30% {
+    opacity: 1; }
+
+  60% {
+    transform: translate3d(0, 25px, 0); }
+
+  75% {
+    transform: translate3d(0, 0px, 0); }
+
+  90% {
+    transform: translate3d(0, 5px, 0); }
+
+  100% {
+    transform: none; } }
+
+.bounceInDown {
+  animation-name: bounceInDown;
+  animation-duration: 1s;
+  animation-fill-mode: both; }
+
+h1 {
+  font-family: 'Yesteryear', cursive;
+  color: #F870AE;
+  font-size: 9em;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+  text-align: center;
+  line-height: 1.2em;
+  margin-top: 0.2em; }
+
+body {
+  background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
+  background-position: 5% 20px, right 5% top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: auto;
+  max-width: 460px;
+  background-color: #AEE2FA;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px; }
+
+.tagline p {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif; }
+
+.description {
+  text-align: center;
+  padding: 0em 2em; }
+
+.last-charm h3 {
+  color: #fff; }
+
+.last-charm p {
+  word-wrap: break-word; }

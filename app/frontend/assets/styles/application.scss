@@ -1,6 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Yesteryear|Open+Sans);
 
 @import "partials/colors";
+@import "partials/pinched";
+@import "transitions/bounceInDown";
+
 h1 {
   font-family: 'Yesteryear', cursive;
   color: $color-header;
@@ -41,4 +44,3 @@ body {
   word-wrap: break-word;
 }
 
-@import "partials/pinched";
