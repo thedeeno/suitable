@@ -61,6 +61,8 @@ var CharmView = Backbone.View.extend({
   },
 
   renderError: function(data) {
+    data = data || {};
+    data.message = data.message || "";
     this.$charm.html(JST["assets/templates/error.html"](data));
   }
 

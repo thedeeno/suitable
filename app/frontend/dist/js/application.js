@@ -61,6 +61,8 @@ var CharmView = Backbone.View.extend({
   },
 
   renderError: function(data) {
+    data = data || {};
+    data.message = data.message || "Something went wrong. Does the subreddit exist?";
     this.$charm.html(JST["assets/templates/error.html"](data));
   }
 
