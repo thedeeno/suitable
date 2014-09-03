@@ -5,6 +5,9 @@ require 'ostruct'
 require_relative 'visitor_agent'
 require_relative 'app_descriptor'
 
+# Set longer wait time since we're hitting external services
+Capybara.default_wait_time = 30
+
 MAGIC_NUMBERS = OpenStruct.new({
   valid: "+15005550006",
   invalid: "+15005550001",
