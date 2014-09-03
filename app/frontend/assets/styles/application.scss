@@ -4,6 +4,16 @@
 @import "partials/pinched";
 @import "transitions/bounceInDown";
 
+@media screen and (min-device-width : 768px) {
+  // only show background images on widish screens
+  body {
+    background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
+    background-position: 5% 20px, right 5% top;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
 h1 {
   font-family: 'Yesteryear', cursive;
   color: $color-header;
@@ -15,11 +25,6 @@ h1 {
 }
 
 body {
-  background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
-  background-position: 5% 20px, right 5% top;
-  background-repeat: no-repeat;
-  background-size: contain;
-
   margin: auto;
   max-width: 460px;
   background-color: $color-background;

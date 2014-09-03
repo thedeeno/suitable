@@ -77,6 +77,13 @@
   animation-duration: 1s;
   animation-fill-mode: both; }
 
+@media screen and (min-device-width: 768px) {
+  body {
+    background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
+    background-position: 5% 20px, right 5% top;
+    background-repeat: no-repeat;
+    background-size: contain; } }
+
 h1 {
   font-family: 'Yesteryear', cursive;
   color: #F870AE;
@@ -87,10 +94,6 @@ h1 {
   margin-top: 0.2em; }
 
 body {
-  background-image: url("/assets/images/girl.svg"), url("/assets/images/guy.svg");
-  background-position: 5% 20px, right 5% top;
-  background-repeat: no-repeat;
-  background-size: contain;
   margin: auto;
   max-width: 460px;
   background-color: #AEE2FA;
