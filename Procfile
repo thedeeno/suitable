@@ -1,1 +1,1 @@
-backend: ./script/start_backend_server
+web: ./script/start_server
