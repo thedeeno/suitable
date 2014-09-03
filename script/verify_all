@@ -1,0 +1,3 @@
+#!/bin/bash -xe
+
+(cd ./acceptance && bundle exec cucumber features)
