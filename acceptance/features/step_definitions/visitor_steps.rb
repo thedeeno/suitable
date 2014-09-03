@@ -24,6 +24,10 @@ When(/^I enter a valid subreddit$/) do
   @visitor.enter("subreddit", "romance")
 end
 
+When(/^I enter subreddit "(.*)"$/) do |name|
+  @visitor.enter("subreddit", name)
+end
+
 When(/^I enter a non-existant subreddit$/) do
   @visitor.enter("subreddit", "thisistotalandcompletegarbageanddoesnotexit")
 end

@@ -14,6 +14,11 @@ Feature: Browser App
     Then I should see "Swooned"
     And I should see the sms body
 
+  Scenario: Sending charm with custom subreddit
+    When I visit suitor
+    And I enter a valid number
+    And I enter subreddit "doge"
+    And I click "Send Message"
     Then I should see "Swooned"
     And I should see the sms body
 
