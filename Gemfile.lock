@@ -1,5 +1,5 @@
 PATH
-  remote: ../../core
+  remote: core
   specs:
     suitor (0.0.2)
       dotenv (~> 0.11)
