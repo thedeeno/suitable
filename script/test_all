@@ -1,0 +1,6 @@
+#!/bin/bash
+
+./script/test_core
+./script/test_cli
+./script/test_backend
+./script/test_frontend
