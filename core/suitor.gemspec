@@ -20,6 +20,7 @@ phone of your choosing.
   spec.add_runtime_dependency "redditkit", "~> 1.0"
   spec.add_runtime_dependency "twilio-ruby", "~> 3.12"
   spec.add_runtime_dependency "dotenv", "~> 0.11"
+  spec.add_runtime_dependency "googl", "~> 0.6"
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"

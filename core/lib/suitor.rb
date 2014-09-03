@@ -3,6 +3,7 @@ require_relative 'suitor/composer'
 
 require_relative 'suitor/models/sms'
 
+require_relative 'suitor/services/googl'
 require_relative 'suitor/services/reddit'
 require_relative 'suitor/services/twilio'
 
