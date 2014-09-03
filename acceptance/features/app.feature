@@ -31,3 +31,10 @@ Feature: Browser App
     Then I should see "O Noes!"
     Then I should see "Error sending text message"
 
+  Scenario: Attempting to use a non-existant subreddit
+    When I visit suitor
+    And I enter a valid number
+    And I enter a non-existant subreddit
+    And I click "Send Message"
+    Then I should see "O Noes!"
+    Then I should see "Error composing message"

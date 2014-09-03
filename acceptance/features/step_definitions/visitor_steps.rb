@@ -24,6 +24,10 @@ When(/^I enter a valid subreddit$/) do
   @visitor.enter("subreddit", "romance")
 end
 
+When(/^I enter a non-existant subreddit$/) do
+  @visitor.enter("subreddit", "thisistotalandcompletegarbageanddoesnotexit")
+end
+
 # Capybara has a hard time clicking on submit input types.
 # Just hard code the element for now
 When(/^I click "Send Message"$/) do
