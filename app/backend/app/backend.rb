@@ -21,8 +21,19 @@ module Suitor
 
     post '/charm' do
       charm = App::Charm.new(params)
+
+      charm.validate
+      status 400 if charm.invalid?
+
       charm.submit
-      haml :index, locals: { charm: charm }
+      status 400 if !charm.dispatched?
+
+      if ajax_request?
+        json charm.to_json
+      else
+        haml :index, locals: { charm: charm }
+      end
+
     end
 
     configure :development do
@@ -45,6 +56,12 @@ module Suitor
       ].each do |key|
         abort "Incomplete environment: #{key} not set" if ENV[key].nil? or ENV[key].empty?
       end
+    end
+
+    private
+
+    def ajax_request?
+      request.env["HTTP_X_REQUESTED_WITH"] == "XMLHttpRequest"
     end
 
   end

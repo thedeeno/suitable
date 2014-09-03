@@ -11,7 +11,7 @@ module Suitor
     describe "#dispatch" do
       it "returns an sms message" do
         sms = twilio.dispatch(valid_options)
-        expect(sms.body).to eq("foo")
+        expect(sms.message).to eq("foo")
       end
 
       context "when destination is invalid" do

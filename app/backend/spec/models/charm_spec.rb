@@ -148,6 +148,16 @@ module App
         end
       end
     end
+
+    describe "#to_json" do
+      it "includes message" do
+        sms = double('sms')
+        allow(sms).to receive(:message) { "foo" }
+        charm = Charm.new
+        charm.sms = sms
+        expect(charm.to_json[:message]).to eq("foo")
+      end
+    end
   end
 
 end

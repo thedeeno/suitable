@@ -17,9 +17,10 @@ module App
     # state
     attr_reader :submitted,
       :dispatched,
-      :sms,
       :dispatch_error,
       :validation_message
+
+    attr_accessor :sms
 
     def initialize(options={})
       @phone_number = options[:phone_number]
@@ -46,6 +47,8 @@ module App
     end
 
     def message
+      return @validation_message if @validation_message
+      return @dispatch_error if @dispatch_error
       sms.message
     end
 
@@ -53,6 +56,7 @@ module App
       return unless valid?
       @submitted = true
       @dispatch_error = nil
+
       begin
         @sms = Suitor.charm(phone_number, with: subreddit)
         @dispatched = true
@@ -92,6 +96,10 @@ module App
 
     def failed_dispatch?
       submitted? and !dispatched?
+    end
+
+    def to_json
+      { message: message }
     end
   end
 end

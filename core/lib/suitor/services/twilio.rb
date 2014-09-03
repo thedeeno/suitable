@@ -21,7 +21,8 @@ module Suitor
 
     def dispatch(options)
       options = defaults.merge(options)
-      SMS.new(client.account.messages.create(options))
+      sms = client.account.messages.create(options)
+      SMS.from_twilio(sms)
     end
   end
 
