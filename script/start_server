@@ -1,3 +1,7 @@
 #!/bin/bash
 
-(cd ./app/backend && bundle exec unicorn -p $PORT -c ./config/unicorn.rb)
+# Heroku forces us to bundle gems in our project's root directory. This sucks
+# because our app is located in it's own sub folder. To work around, execute
+# the bundle from the root directory but then change to the proper app
+# directory with a subshell
+bundle exec sh -c "cd ./app/backend && unicorn -p $PORT -c ./config/unicorn.rb"
