@@ -1,6 +1,6 @@
 module.exports = {
   css: {
-    files: '**/*.scss',
+    files: 'assets/styles/**/*.scss',
     tasks: ['assets-css'],
     options: {
       livereload: true,
