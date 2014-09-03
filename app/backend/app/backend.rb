@@ -33,7 +33,6 @@ module Suitor
       else
         haml :index, locals: { charm: charm }
       end
-
     end
 
     configure :development do
@@ -44,9 +43,9 @@ module Suitor
       Dotenv.load ".env.test"
     end
 
-    # abort start when environment is not properly configured
     configure do
       Dotenv.load ".env"
+      # abort start when environment is not properly configured
       Suitor.check_environment!
     end
 
