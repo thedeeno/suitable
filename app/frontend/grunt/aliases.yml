@@ -10,6 +10,7 @@ assets-css:
 
 assets-js-local:
   - 'copy:js'
+  - 'jshint'
 
 assets-js-vendor:
   - 'bower_concat'
