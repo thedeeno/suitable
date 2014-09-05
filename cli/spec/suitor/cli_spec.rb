@@ -49,7 +49,7 @@ module Suitor
         ENV["TWILIO_SID"] = @original
       end
 
-      it "complains when environment no set" do
+      it "complains" do
         command.phone_number = valid_number
         expect do
           command.execute
