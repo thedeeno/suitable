@@ -42,7 +42,8 @@ The ruby application responsible for serving the browser app and API. It's a sim
 
 It also houses the `unicorn` config for use in production.
 
-The server following environment variables to be configured and will complain on boot if they're missing:
+The server expects the following environment variables to be configured
+and will complain on boot if they're missing:
 
   - `TWILIO_SID`
   - `TWILIO_TOKEN`
@@ -50,7 +51,8 @@ The server following environment variables to be configured and will complain on
   - `REDDIT_KIT_USER`
   - `REDDIT_KIT_PASS`
   
-It will attempt to source variables defined in `.env`. 
+It will attempt to source variables defined in a `.env` file if
+present.
 
 #### Commands
 
@@ -62,7 +64,7 @@ It will attempt to source variables defined in `.env`.
 
 This is a grunt/bower based project that's responsible for compiling and testing frontend assets. It leverages a series of grunt tasks (configured in `./grunt`) to autocompile, distribute, and live-reload assets during active development. The output of this pipeline get's dumped into `./dist` which is symlinked to the backend's `public` directory for easy static serving.
 
-Dependencies like `foundation`, `underscore`, `backbone` are managed via bower and auto-concatenated into `vendor` assets.
+Dependencies like `foundation`, `underscore`, `backbone` are managed via bower and auto-concatenated into assets with `vendor`prefixes. 
 
 It uses karma for testing (though there aren't really tests yet).
 
@@ -74,9 +76,9 @@ It uses karma for testing (though there aren't really tests yet).
 
 # Core
 
-A gem that contains the core logic for suitor that's shared by both the CLI and Browser App. The most notable feature are the service wrappers. Here we wrap each external service in a wrapper to establish a clean and clear boundary between the suitor core and its external dependencies. This makes unit testing and service swapping easier. For the most part, external services are mocked during unit tests of the core.
+A gem that contains the core logic for suitor that's shared by both the CLI and Browser App. The most notable features are the service wrappers. Here we wrap each external service with a class to establish a clean boundary between the suitor core and its external dependencies. This makes unit testing and service swapping easier. For the most part, external services are mocked during unit tests of the core.
 
-This library provides a clean interface for higher-level dependencies to stub during unit testing. Because of this, the higher level projects don't know anything about Reddit, Twilio, or Googl.
+This library establishes a simple interface for higher-level projects to stub during unit testing. Because of this, the higher level projects don't know anything about the clients used for Reddit, Twilio, or Googl.
 
 #### Commands
 
@@ -119,7 +121,7 @@ It will attempt to source variables defined in `.env` before checking.
 
 # Continuous Integration
 
-The following command will run all unit and acceptance tests and exit with 0 on PASS and 1 on FAIL
+The following command will run all unit and acceptance tests and exit with 0 or 1 on PASS or FAIL respectively.
 
     ./script/ci
 
