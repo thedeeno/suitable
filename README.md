@@ -1,15 +1,12 @@
 Suitor-Dane
 ===========
 
-Dane O'Connor's submission for the suitor challenge.
+An example application which SMS's a shortened link to the top post from a
+given subreddit to a given number.
 
 ## Live Demo
 
 http://limitless-meadow-5871.herokuapp.com/
-
-## My Feature
-
-The urls sent to the phone are shortened
 
 ## Architecture
 
@@ -50,7 +47,7 @@ and will complain on boot if they're missing:
   - `FROM_PHONE`
   - `REDDIT_KIT_USER`
   - `REDDIT_KIT_PASS`
-  
+
 It will attempt to source variables defined in a `.env` file if
 present.
 
